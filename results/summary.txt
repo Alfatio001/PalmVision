@@ -1,0 +1,15 @@
+==================================================
+PALMVISION ANALYSIS REPORT
+==================================================
+
+Total Trees              : 2107
+Average Confidence       : 0.627
+Average Canopy Size      : 63.62
+Average Width            : 64.72
+Average Height           : 62.51
+Average Area             : 5533.33
+Minimum Canopy Size      : 19.84
+Maximum Canopy Size      : 513.42
+Small Canopy             : 526
+Medium Canopy            : 1054
+Large Canopy             : 527
