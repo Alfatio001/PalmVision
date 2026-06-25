@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from PIL import Image
 from ultralytics import YOLO
+from pathlib import Path
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PAGE CONFIG  (must be first Streamlit call)
@@ -300,16 +301,24 @@ def load_csv(path: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
+MODEL_PATH = Path("models/best.pt")
+
 @st.cache_resource(show_spinner=False)
-def load_model(path: str) -> YOLO:
-    return YOLO(path)
+def load_model():
+    return YOLO(str(MODEL_PATH))
+
+if not MODEL_PATH.exists():
+    st.error(f"❌ Model tidak ditemukan: {MODEL_PATH}")
+    st.stop()
+
+model = load_model()
 
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 
 SUMMARY_PATH = "results/summary.json"
 CSV_PATH     = "data/tree_analysis_final.csv"
-MODEL_PATH   = "runs/palm_yolov8n/weights/best.pt"
+MODEL_PATH   = "models/best.pt"
 OUTPUT_DIR   = "output"
 
 # ── Guard against missing files ───────────────────────────────────────────────

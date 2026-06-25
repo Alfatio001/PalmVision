@@ -8,7 +8,7 @@ from statistics import mean
 # CONFIGURATION
 # ==========================================================
 
-MODEL_PATH = "runs/palm_yolov8n/weights/best.pt"
+MODEL_PATH = "models/best.pt"
 
 INPUT_FOLDER = "test/images"
 
