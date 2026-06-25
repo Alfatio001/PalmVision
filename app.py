@@ -620,7 +620,7 @@ with tab_img:
             if not os.path.exists(MODEL_PATH):
                 st.error(f"Model not found at `{MODEL_PATH}`. Please check the path.")
             else:
-                model = load_model(MODEL_PATH)
+                model = load_model()
                 with st.spinner("Running YOLOv8 inference…"):
                     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
                     tmp_path = tmp.name
